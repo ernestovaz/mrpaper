@@ -1,0 +1,11 @@
+package ${c.getFullyQualifiedName(".")}; 
+${java.classifierSignature(c)} { 
+	<% def atts = c.attributes %> 
+	<% atts.each() {%> 
+		${java.attribute(it)} 
+	<% } %> 
+	<% atts.each() { %> 
+		${java.getter(it)} 
+		${java.setter(it)} 
+	<% } %> 
+} 

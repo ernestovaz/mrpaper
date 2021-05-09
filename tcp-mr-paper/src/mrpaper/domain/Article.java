@@ -11,9 +11,12 @@ public class Article {
 	private Topic topic;
 	private List<Review> reviews;
 	
-	public Article(int id, String name) {
-		 this.id = id;
-		 this.name = name;
+	public Article(int id, String name, Researcher author, Conference conference, Topic topic) {
+		this.id = id;
+		this.name = name;
+		this.author = author;
+		this.conference = conference;
+		this.topic = topic;
 	}
 
 	public int getId() {

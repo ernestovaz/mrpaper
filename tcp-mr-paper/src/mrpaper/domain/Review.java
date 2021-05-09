@@ -3,14 +3,15 @@ package mrpaper.domain;
 public class Review {
 	
 	private int id;
-	private Researcher researcher;
+	private Researcher reviewer;
 	private Article article;
 	private Integer rating;
 	
-	public Review(int id, Researcher reseacher, Article article) {
+	public Review(int id, Article article, Researcher reviewer, Integer rating) {
 		this.id = id;
-		this.researcher = reseacher;
+		this.reviewer = reviewer;
 		this.article = article;
+		this.rating = rating;
 	}
 
 	public int getId() {
@@ -22,11 +23,11 @@ public class Review {
 	}
 
 	public Researcher getResearcher() {
-		return researcher;
+		return reviewer;
 	}
 
 	public void setResearcher(Researcher researcher) {
-		this.researcher = researcher;
+		this.reviewer = researcher;
 	}
 
 	public Article getArticle() {

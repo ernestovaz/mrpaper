@@ -1,4 +1,4 @@
-package mrpaper.domain;
+package mrpaper.business.domain;
 
 public class University {
 	

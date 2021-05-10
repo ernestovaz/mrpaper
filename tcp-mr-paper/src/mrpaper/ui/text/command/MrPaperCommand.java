@@ -5,16 +5,16 @@ import mrpaper.ui.text.MrPaperTextInterface;
 import mrpaper.ui.text.TextManager;
 import mrpaper.ui.text.UIUtils;
 
-public abstract class Command implements UIAction {
+public abstract class MrPaperCommand implements UIAction {
 	
 	protected final MrPaperTextInterface mrPaperInterface;
 	private boolean isEnabled;
 
-	protected Command(MrPaperTextInterface bankInterface) {
+	protected MrPaperCommand(MrPaperTextInterface bankInterface) {
 		this(bankInterface, false);
 	}
 
-	protected Command(MrPaperTextInterface mrPaperInterface, boolean isEnabled) {
+	protected MrPaperCommand(MrPaperTextInterface mrPaperInterface, boolean isEnabled) {
 		this.mrPaperInterface = mrPaperInterface;
 		this.isEnabled = isEnabled;
 	}

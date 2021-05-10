@@ -1,12 +1,19 @@
 package mrpaper.ui.text;
 
+import mrpaper.business.ArticleService;
+import mrpaper.business.ConferenceService;
 import mrpaper.ui.MrPaperInterface;
 import mrpaper.ui.UIAction;
-import mrpaper.ui.text.command.Command;
+import mrpaper.ui.text.command.MrPaperCommand;
 
-public abstract class MrPaperTextInterface extends MrPaperInterface {
+public class MrPaperTextInterface extends MrPaperInterface {
 	
 	public static final String EXIT_CODE = "E";
+	
+	public MrPaperTextInterface(ConferenceService conferenceService,
+			ArticleService articleService) {
+		//this.addAction("C", new TesteCommand(this));
+	}
 
 	@Override
 	public void createAndShowUI() {
@@ -16,7 +23,7 @@ public abstract class MrPaperTextInterface extends MrPaperInterface {
 			System.out.println();
 			System.out.print(getMenu(uiUtils.getTextManager()));
 			commandKey = uiUtils.readString(null);
-			Command command = (Command) actions.get(commandKey);
+			MrPaperCommand command = (MrPaperCommand) actions.get(commandKey);
 			if (command != null) {
 				try {
 					command.execute();
@@ -25,7 +32,6 @@ public abstract class MrPaperTextInterface extends MrPaperInterface {
 				}
 			}
 		} while (!EXIT_CODE.equals(commandKey));
-
 	}
 	
 	

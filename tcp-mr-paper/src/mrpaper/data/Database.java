@@ -6,12 +6,12 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import mrpaper.domain.Article;
-import mrpaper.domain.Conference;
-import mrpaper.domain.Researcher;
-import mrpaper.domain.Review;
-import mrpaper.domain.Topic;
-import mrpaper.domain.University;
+import mrpaper.business.domain.Article;
+import mrpaper.business.domain.Conference;
+import mrpaper.business.domain.Researcher;
+import mrpaper.business.domain.Review;
+import mrpaper.business.domain.Topic;
+import mrpaper.business.domain.University;
 
 public class Database {
 

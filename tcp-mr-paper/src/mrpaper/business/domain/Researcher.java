@@ -1,5 +1,6 @@
 package mrpaper.business.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Researcher {
@@ -14,6 +15,7 @@ public class Researcher {
 		this.id = id;
 		this.name = name;
 		this.affiliation = affiliation;
+		this.reviews = new ArrayList<>();
 	}
 
 	public int getId() {
@@ -54,5 +56,11 @@ public class Researcher {
 
 	public void setReviews(List<Review> reviews) {
 		this.reviews = reviews;
+	}
+	
+	@Override 
+	public String toString() {
+		return String.format("[ID: %s, NAME: %s, AFFILIATION: %s]",
+				this.id, this.name, this.affiliation.toString());
 	}
 }

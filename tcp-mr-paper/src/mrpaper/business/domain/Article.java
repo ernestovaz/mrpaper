@@ -1,6 +1,8 @@
 package mrpaper.business.domain;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Article {
 	
@@ -17,6 +19,7 @@ public class Article {
 		this.author = author;
 		this.conference = conference;
 		this.topic = topic;
+		this.reviews = new ArrayList<>();
 	}
 
 	public int getId() {
@@ -65,6 +68,13 @@ public class Article {
 
 	public void setReviews(List<Review> reviews) {
 		this.reviews = reviews;
+	}
+	
+	@Override
+	public String toString() {
+		return String.format("[ID: %s, NAME: %s, AUTHOR: %s, TOPIC: %s, CONFERENCE: %s, REVIEWS: %s]",
+				this.id, this.name, this.author.getName(), this.topic.toString(), this.conference.toString(), 
+				this.reviews.stream().map(Review::toString).collect(Collectors.joining()));
 	}
 
 }

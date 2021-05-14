@@ -20,7 +20,7 @@ public class MrPaperText extends MrPaper {
 	private String getMenu() {
 		StringBuffer sb = new StringBuffer();
 		
-		sb.append("MANOOOOO QQ TU QUER FAZER??????\n");
+		sb.append("MANOOOOO QQ TU QUER FAZER?????? :3 \n");
 		
 		return sb.toString();
 	}

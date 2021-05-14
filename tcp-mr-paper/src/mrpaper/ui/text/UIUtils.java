@@ -11,7 +11,7 @@ public class UIUtils {
 	public static final String DATE_FORMAT = "dd/MM/yyyy";
 	public static final String DATE_TIME_FORMAT = "dd/MM/yyyy HH:mm:ss";
 	public static final UIUtils INSTANCE = new UIUtils();
-	public static final String PROPERTY_RESOURCE_BUNDLE = "bank.resources.globalMessages";
+	public static final String PROPERTY_RESOURCE_BUNDLE = "mrpaper.resources.globalMessages";
 	
 	private final BufferedReader reader;
 	private final SimpleDateFormat sdf;

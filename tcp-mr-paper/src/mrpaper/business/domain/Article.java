@@ -74,7 +74,7 @@ public class Article {
 		this.reviews.add(review);
 	}
 	
-	public List<Researcher> validReviewers(List<Researcher> reviewers ){
+	public List<Researcher> validReviewers(List<Researcher> reviewers){
 		int i;
 		List<Researcher> validReaserchers = new ArrayList<Researcher>();
 		for(i = 0;i < reviewers.size(); i ++) {
@@ -85,11 +85,11 @@ public class Article {
 	}
 	
 	private boolean reviewerIsValid(Researcher researcher) {
-		int i;
-		for(i = 0;i < researcher.getInterests().size(); i ++) {
-			if(researcher.getInterests(i))
-		
-		return false;
+		/*
+		 * int i; for(i = 0;i < researcher.getInterests().size(); i ++) {
+		 * if(researcher.getInterests(i))
+		 */ 
+		  return false;
 	}
 
 	@Override

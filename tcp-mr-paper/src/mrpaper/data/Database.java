@@ -47,21 +47,22 @@ public class Database {
 			Topic t4 = new Topic(4, "Software Architecture");
 			Topic t5 = new Topic(5, "Software Testing");
 			Topic t6 = new Topic(6, "Aspect-oriented Programming");
+			Topic t7 = new Topic(7, "Software Quality");
 			
 			University u1 = new University(1, "UFRGS");
 			University u2 = new University(2, "USP");
 			University u3 = new University(3, "UFRJ");
-
-			Researcher r1 = new Researcher(1, "João", u1);
-			Researcher r2 = new Researcher(2, "Ana", u2);
-			Researcher r3 = new Researcher(3, "Manoel", u1);
-			Researcher r4 = new Researcher(4, "Joana", u3);
-			Researcher r5 = new Researcher(5, "Miguel", u1);
-			Researcher r6 = new Researcher(6, "Beatriz", u3);
-			Researcher r7 = new Researcher(7, "Suzana", u1);
-			Researcher r8 = new Researcher(8, "Natasha", u3);
-			Researcher r9 = new Researcher(9, "Pedro", u2);
-			Researcher r10 = new Researcher(10, "Carlos", u2);
+		
+			Researcher r1 = new Researcher(1, "Joï¿½o", u1,new Topic[]{t1,t2,t3});
+			Researcher r2 = new Researcher(2, "Ana", u2,new Topic[]{t4,t3,t2});
+			Researcher r3 = new Researcher(3, "Manoel", u1,new Topic[]{t1,t5});
+			Researcher r4 = new Researcher(4, "Joana", u3,new Topic[]{t1,t2,t4,t6});
+			Researcher r5 = new Researcher(5, "Miguel", u1,new Topic[]{t4,t3,t5});
+			Researcher r6 = new Researcher(6, "Beatriz", u3,new Topic[]{t2,t5,t6});
+			Researcher r7 = new Researcher(7, "Suzana", u1,new Topic[]{t6,t3,t2});
+			Researcher r8 = new Researcher(8, "Natasha", u3,new Topic[]{t3,t2,t7,t1});
+			Researcher r9 = new Researcher(9, "Pedro", u2,new Topic[]{t6,t4});
+			Researcher r10 = new Researcher(10, "Carlos", u2,new Topic[]{t2,t3});
 
 			Conference c1 = new Conference(1, "ICSE", new ArrayList<>(), Arrays.asList(r1,r2,r3,r4,r5,r6));
 			Conference c2 = new Conference(2, "FSE", new ArrayList<>(), Arrays.asList(r1,r2,r3,r4,r5,r6));
@@ -133,6 +134,7 @@ public class Database {
 			save(t4);
 			save(t5);
 			save(t6);
+			save(t7);
 
 			save(u1);
 			save(u2);

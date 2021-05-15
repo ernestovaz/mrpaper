@@ -1,6 +1,7 @@
 package mrpaper.business.domain;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Researcher {
@@ -10,12 +11,15 @@ public class Researcher {
 	private List<Topic> interests;
 	private University affiliation;
 	private List<Review> reviews;
-	
-	public Researcher(int id, String name, University affiliation) {
+
+	public Researcher(int id, String name, University affiliation, List<Topic> interests) {
 		this.id = id;
 		this.name = name;
 		this.affiliation = affiliation;
 		this.reviews = new ArrayList<>();
+	}
+	public Researcher(int id, String name, University affiliation,Topic[] interests) {
+		this(id,name,affiliation,Arrays.asList(interests));
 	}
 
 	public int getId() {

@@ -47,5 +47,27 @@ public class Conference {
 	public void setCommitte(List<Researcher> committe) {
 		this.committe = committe;
 	}
+	
+	public void allocateArticles(int numReviewers) {
+		
+	}
+	
+	public List<Article> getAcceptedArticles(){
+		return null;
+	}
+	
+	public List<Article> getRejectedArticles(){
+		return null;
+	}
+	
+	public List<Researcher> sortReviewers(List<Researcher> reviewers){
+		return null;
+	}
+	public List<Researcher> validReviewers(Article article){
+		return null;
+	}
+	
+	
+	
 
 }

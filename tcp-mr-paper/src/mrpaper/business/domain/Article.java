@@ -70,6 +70,14 @@ public class Article {
 		this.reviews = reviews;
 	}
 	
+	public void includeReview(Review review) {
+		this.reviews.add(review);
+	}
+	
+	public List<Researcher> validReviewers(List<Researcher> reviewers ){
+		return null;
+	}
+	
 	@Override
 	public String toString() {
 		return String.format("[ID: %s, NAME: %s, AUTHOR: %s, TOPIC: %s, CONFERENCE: %s, REVIEWS: %s]",

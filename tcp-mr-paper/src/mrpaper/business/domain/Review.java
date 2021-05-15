@@ -22,11 +22,11 @@ public class Review {
 		this.id = id;
 	}
 
-	public Researcher getResearcher() {
+	public Researcher getReviewer() {
 		return reviewer;
 	}
 
-	public void setResearcher(Researcher researcher) {
+	public void setReviewer(Researcher researcher) {
 		this.reviewer = researcher;
 	}
 

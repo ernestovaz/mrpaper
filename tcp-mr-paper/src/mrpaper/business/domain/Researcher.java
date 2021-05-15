@@ -58,6 +58,9 @@ public class Researcher {
 		this.reviews = reviews;
 	}
 	
+	public void includeReview(Review review) {
+		this.reviews.add(review);
+	}
 	@Override 
 	public String toString() {
 		return String.format("[ID: %s, NAME: %s, AFFILIATION: %s]",

@@ -33,7 +33,7 @@ public class MrPaperText extends MrPaper {
 		Integer option;
 		do {
 			System.out.println(getMenu());
-			option = uiUtils.readInteger(null);
+			option = uiUtils.readInteger(null);			
 		} while(option != 0);
 	}
 

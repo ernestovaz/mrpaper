@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import mrpaper.business.ArticleService;
 import mrpaper.business.domain.Article;
+import mrpaper.business.domain.Review;
 import mrpaper.data.Database;
 
 
@@ -21,5 +22,8 @@ public class ArticleServiceImpl implements ArticleService {
 		articles.addAll(database.getAllArticles());
 		return articles;
 	}
-
+	
+	public void setRating(Review review, int rating){
+		review.setRating(rating);		
+	}
 }

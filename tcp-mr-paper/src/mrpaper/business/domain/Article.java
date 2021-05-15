@@ -75,9 +75,23 @@ public class Article {
 	}
 	
 	public List<Researcher> validReviewers(List<Researcher> reviewers ){
+		int i;
+		List<Researcher> validReaserchers = new ArrayList<Researcher>();
+		for(i = 0;i < reviewers.size(); i ++) {
+			if (reviewerIsValid(reviewers.get(i)))
+					validReaserchers.add(reviewers.get(i));
+		}
 		return null;
 	}
 	
+	private boolean reviewerIsValid(Researcher researcher) {
+		int i;
+		for(i = 0;i < researcher.getInterests().size(); i ++) {
+			if(researcher.getInterests(i))
+		
+		return false;
+	}
+
 	@Override
 	public String toString() {
 		return String.format("[ID: %s, NAME: %s, AUTHOR: %s, TOPIC: %s, CONFERENCE: %s, REVIEWS: %s]",

@@ -81,15 +81,16 @@ public class Article {
 			if (reviewerIsValid(reviewers.get(i)))
 					validReaserchers.add(reviewers.get(i));
 		}
-		return null;
+		return validReaserchers;
 	}
 	
 	private boolean reviewerIsValid(Researcher researcher) {
-		/*
-		 * int i; for(i = 0;i < researcher.getInterests().size(); i ++) {
-		 * if(researcher.getInterests(i))
-		 */ 
-		  return false;
+		 int i; 
+		 for(i = 0;i < researcher.getInterests().size(); i ++) {
+			 if(researcher.getInterests().get(i) == this.topic && researcher.getAffiliation() != this.author.getAffiliation())
+				 return true;
+		 }
+		return false;
 	}
 
 	@Override

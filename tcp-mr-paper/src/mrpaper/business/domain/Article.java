@@ -78,12 +78,22 @@ public class Article {
 		int i;
 		List<Researcher> validReaserchers = new ArrayList<Researcher>();
 		for(i = 0;i < reviewers.size(); i ++) {
-			if (reviewerIsValid(reviewers.get(i)))
+			if (reviewerIsValid(reviewers.get(i)) && !reviewerIsAvaluating(reviewers.get(i)))
 					validReaserchers.add(reviewers.get(i));
 		}
 		return validReaserchers;
 	}
 	
+	private boolean reviewerIsAvaluating(Researcher researcher) {
+		int i;
+		for(i = 0;i < this.reviews.size(); i++) {
+			if(this.reviews.get(i).getReviewer() == researcher)
+				return true;
+		}
+			
+		return false;
+	}
+
 	private boolean reviewerIsValid(Researcher researcher) {
 		 int i; 
 		 for(i = 0;i < researcher.getInterests().size(); i ++) {
@@ -92,6 +102,8 @@ public class Article {
 		 }
 		return false;
 	}
+	
+	
 
 	@Override
 	public String toString() {

@@ -90,7 +90,6 @@ public class ConferenceTest {
 		assertFalse(Conferencia2.getAcceptedArticles() == Misto);
 		
 		
-		
 	}	
-
+	
 }

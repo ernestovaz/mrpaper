@@ -57,33 +57,23 @@ public class Conference {
 	public List<Article> getAcceptedArticles(){
 		int i;
 		List<Article> AcceptedArticles = new ArrayList<Article>();
-		for (i = 0; i < this.getArticles().size(); i++) {
-			if(ArticleAvgGrade(this.getArticles().get(i)) >= 0);
-				AcceptedArticles.add(this.getArticles().get(i));
-		}	
+		for (i = 0; i < getArticles().size(); i++) {
+			if(getArticles().get(i).AverageGrade() >= 0);
+				AcceptedArticles.add(getArticles().get(i));
+		}
 		return AcceptedArticles;
 	}
 	
 	public List<Article> getRejectedArticles(){
 		int i;
 		List<Article> RejectedArticles = new ArrayList<Article>();
-		for (i = 0; i < this.getArticles().size(); i++) {
-			if(ArticleAvgGrade(this.getArticles().get(i)) < 0);
-				RejectedArticles.add(this.getArticles().get(i));
+		for (i = 0; i <getArticles().size(); i++) {
+			if(getArticles().get(i).AverageGrade() < 0);
+				RejectedArticles.add(getArticles().get(i));
 		}	
 		return RejectedArticles;
 	}
 	
-	private long ArticleAvgGrade(Article article) {
-		int i;
-		long AverageGrade = 0;
-			for(i = 0; i < article.getReviews().size(); i++) {
-				AverageGrade += article.getReviews().get(i).getRating();
-			}
-		AverageGrade = AverageGrade/article.getReviewers().size();
-		return AverageGrade;
-	}
-
 		
 	public List<Researcher> sortReviewers(List<Researcher> reviewers){
 		return null;

@@ -40,5 +40,20 @@ public class ArticleTest {
 		assertTrue(articleA.validReviewers(natasha).isEmpty());
 		assertFalse(articleB.validReviewers(joao).isEmpty());
 	}
+	
+	@Test
+	public void gradesTest() {
+		
+		Article article2 = database.getArticleById(2);
+		assertEquals(article2.AverageGrade(), 2,5);
+		
+		Article article3 = database.getArticleById(3);
+		assertEquals(article3.AverageGrade(), 0);
+		
+		Article article4 = database.getArticleById(4);
+		assertEquals(article4.AverageGrade(), 0,5);
+		
+		
+	}
 
 }

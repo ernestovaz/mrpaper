@@ -111,6 +111,16 @@ public class Article {
 		return false;
 	}
 	
+	public long AverageGrade() {
+		int i;
+		long AverageGrade = 0;
+			for(i = 0; i < getReviews().size(); i++) {
+				AverageGrade += getReviews().get(i).getRating();
+			}
+		AverageGrade = AverageGrade/getReviewers().size();
+		return AverageGrade;
+	}
+	
 	
 
 	@Override

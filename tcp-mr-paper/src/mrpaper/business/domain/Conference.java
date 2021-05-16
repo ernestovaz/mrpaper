@@ -3,9 +3,9 @@ package mrpaper.business.domain;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
+import mrpaper.business.impl.ResearcherComparator;
 
-public class Conference {
-	
+public class Conference{
 	private int id;
 	private String initials;
 	private List<Article> articles;
@@ -76,14 +76,11 @@ public class Conference {
 	
 		
 	public List<Researcher> sortReviewers(List<Researcher> reviewers){
-		return null;
+		Collections.sort(reviewers,new ResearcherComparator(this.id));
+		return reviewers;
 	}
 	
 	public List<Researcher> validReviewers(Article article){
 		return null;
 	}
-	
-	
-	
-
 }

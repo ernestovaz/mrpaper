@@ -74,6 +74,14 @@ public class Article {
 		this.reviews.add(review);
 	}
 	
+	public List<Researcher> getReviewers(){
+		List<Researcher> researchers = new ArrayList<Researcher>();
+		for (Review review : this.getReviews()) {
+			researchers.add(review.getReviewer());
+		}
+		return researchers;
+	}
+	
 	public List<Researcher> validReviewers(List<Researcher> reviewers){
 		int i;
 		List<Researcher> validReaserchers = new ArrayList<Researcher>();

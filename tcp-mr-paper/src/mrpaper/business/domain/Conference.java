@@ -1,6 +1,7 @@
 package mrpaper.business.domain;
 
 import java.util.List;
+import java.util.Collections;
 
 public class Conference {
 	
@@ -59,10 +60,9 @@ public class Conference {
 	public List<Article> getRejectedArticles(){
 		return null;
 	}
-	
-	public void sortReviewers(){
 		
-		
+	public List<Researcher> sortReviewers(List<Researcher> reviewers){
+		return null;
 	}
 	public List<Researcher> validReviewers(Article article){
 		return null;

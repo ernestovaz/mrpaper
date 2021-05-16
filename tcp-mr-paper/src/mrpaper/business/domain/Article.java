@@ -78,13 +78,13 @@ public class Article {
 		int i;
 		List<Researcher> validReaserchers = new ArrayList<Researcher>();
 		for(i = 0;i < reviewers.size(); i ++) {
-			if (reviewerIsValid(reviewers.get(i)) && !reviewerIsAvaluating(reviewers.get(i)))
+			if (reviewerIsValid(reviewers.get(i)) && !reviewerIsEvaluating(reviewers.get(i)))
 					validReaserchers.add(reviewers.get(i));
 		}
 		return validReaserchers;
 	}
 	
-	private boolean reviewerIsAvaluating(Researcher researcher) {
+	private boolean reviewerIsEvaluating(Researcher researcher) {
 		int i;
 		for(i = 0;i < this.reviews.size(); i++) {
 			if(this.reviews.get(i).getReviewer() == researcher)

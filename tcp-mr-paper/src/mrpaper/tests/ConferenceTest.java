@@ -33,19 +33,61 @@ public class ConferenceTest {
 		
 		
 		Conference Conferencia2 = database.getConferenceById(2);
-		Conferencia2.sortReviewers(Conferencia2.getCommitte());
+		//Conferencia2.sortReviewers(Conferencia2.getCommitte());
 		
 	}
 	
 	@Test
 	public void selectedArticlesTests() {
+	
+		Conference Conferencia2 = database.getConferenceById(2);
 		
+		List <Article> Aprovados2 = Arrays.asList(database.getArticleById(2));
+		Aprovados2.add(database.getArticleById(3));
+		Aprovados2.add(database.getArticleById(4));
 		
+		List <Article> Rejeitados2 = Arrays.asList(database.getArticleById(5));
+		Rejeitados2.add(database.getArticleById(6));
+		
+		List <Article> AprovadosSO = Arrays.asList(database.getArticleById(2));
+		Aprovados2.add(database.getArticleById(4));
+		Aprovados2.add(database.getArticleById(3));
+		
+		List <Article> Misto = Arrays.asList(database.getArticleById(5));
+		Misto.add(database.getArticleById(4));
+		Misto.add(database.getArticleById(2));
+		
+		assertTrue(Conferencia2.getAcceptedArticles() == Aprovados2);
+		assertFalse(Conferencia2.getAcceptedArticles() == AprovadosSO);
+		assertFalse(Conferencia2.getAcceptedArticles() == Rejeitados2);
+		assertFalse(Conferencia2.getAcceptedArticles() == Misto);
 		
 	}
 	
 	@Test
 	public void rejectedArticlesTests() {
+		
+		Conference Conferencia2 = database.getConferenceById(2);
+		
+		List <Article> Aprovados2 = Arrays.asList(database.getArticleById(2));
+		Aprovados2.add(database.getArticleById(3));
+		Aprovados2.add(database.getArticleById(4));
+		
+		List <Article> Rejeitados2 = Arrays.asList(database.getArticleById(5));
+		Rejeitados2.add(database.getArticleById(6));
+		
+		List <Article> AprovadosSO = Arrays.asList(database.getArticleById(2));
+		Aprovados2.add(database.getArticleById(4));
+		Aprovados2.add(database.getArticleById(3));
+		
+		List <Article> Misto = Arrays.asList(database.getArticleById(5));
+		Misto.add(database.getArticleById(4));
+		Misto.add(database.getArticleById(2));
+		
+		assertFalse(Conferencia2.getAcceptedArticles() == Aprovados2);
+		assertFalse(Conferencia2.getAcceptedArticles() == AprovadosSO);
+		assertTrue(Conferencia2.getAcceptedArticles() == Rejeitados2);
+		assertFalse(Conferencia2.getAcceptedArticles() == Misto);
 		
 		
 		

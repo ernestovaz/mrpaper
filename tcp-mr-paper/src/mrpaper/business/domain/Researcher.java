@@ -17,6 +17,7 @@ public class Researcher {
 		this.name = name;
 		this.affiliation = affiliation;
 		this.reviews = new ArrayList<>();
+		this.interests = interests;
 	}
 	public Researcher(int id, String name, University affiliation,Topic[] interests) {
 		this(id,name,affiliation,Arrays.asList(interests));

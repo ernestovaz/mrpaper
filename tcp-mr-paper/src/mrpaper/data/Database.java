@@ -80,6 +80,10 @@ public class Database {
 			Article a10 = new Article(10, "Architecture Comformance", r9, c1, t4);
 			Article a11 = new Article(11, "Structural Testing", r10, c1, t5);
 			
+			c1.setArticles(Arrays.asList(a1));
+			c2.setArticles(Arrays.asList(a2,a3,a4,a5,a6));
+			c1.setArticles(Arrays.asList(a7,a8,a9,a10,a11));
+			
 			Review review1 = new Review(1, a1, r8, 2);
 			r8.getReviews().add(review1);
 			a1.getReviews().add(review1);

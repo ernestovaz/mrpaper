@@ -47,39 +47,33 @@ public class ConferenceTest {
 		List <Article> AprovadosSO = Arrays.asList(database.getArticleById(2),database.getArticleById(4),database.getArticleById(3));
 		List <Article> Misto = Arrays.asList(database.getArticleById(5),database.getArticleById(4),database.getArticleById(2));
 		
-		System.out.println(Conferencia2.getArticles());
-		System.out.println(Conferencia2.getAcceptedArticles());
+		//System.out.println(Conferencia2.getArticles().toString());
+		//System.out.println(Conferencia2.getAcceptedArticles().toString());
 		
-		assertTrue(Conferencia2.getAcceptedArticles().contains(database.getArticleById(2)));
-		assertFalse(Conferencia2.getAcceptedArticles() == AprovadosSO);
-		assertFalse(Conferencia2.getAcceptedArticles() == Rejeitados2);
-		assertFalse(Conferencia2.getAcceptedArticles() == Misto);
+		assertTrue(Conferencia2.getAcceptedArticles().containsAll(Aprovados2));
+		assertTrue(Conferencia2.getAcceptedArticles().containsAll(AprovadosSO));
+		assertFalse(Conferencia2.getAcceptedArticles().contains(database.getArticleById(6)));
+		assertFalse(Conferencia2.getAcceptedArticles().containsAll(Misto));
+		assertFalse(Conferencia2.getAcceptedArticles().containsAll(Rejeitados2));
 		
 	}
 	
+	@Test
 	public void rejectedArticlesTests() {
 		
+
 		Conference Conferencia2 = database.getConferenceById(2);
 		
-		List <Article> Aprovados2 = Arrays.asList(database.getArticleById(2));
-		Aprovados2.add(database.getArticleById(3));
-		Aprovados2.add(database.getArticleById(4));
+		List <Article> Rejeitados2 = Arrays.asList(database.getArticleById(5),database.getArticleById(6));
+		List <Article> Misto = Arrays.asList(database.getArticleById(5),database.getArticleById(4),database.getArticleById(2));
 		
-		List <Article> Rejeitados2 = Arrays.asList(database.getArticleById(5));
-		Rejeitados2.add(database.getArticleById(6));
+		//System.out.println(Conferencia2.getArticles().toString());
+		//System.out.println(Conferencia2.getRejectedArticles().toString());
 		
-		List <Article> AprovadosSO = Arrays.asList(database.getArticleById(2));
-		Aprovados2.add(database.getArticleById(4));
-		Aprovados2.add(database.getArticleById(3));
-		
-		List <Article> Misto = Arrays.asList(database.getArticleById(5));
-		Misto.add(database.getArticleById(4));
-		Misto.add(database.getArticleById(2));
-		
-		assertFalse(Conferencia2.getAcceptedArticles() == Aprovados2);
-		assertFalse(Conferencia2.getAcceptedArticles() == AprovadosSO);
-		assertTrue(Conferencia2.getAcceptedArticles() == Rejeitados2);
-		assertFalse(Conferencia2.getAcceptedArticles() == Misto);
+		assertTrue(Conferencia2.getRejectedArticles().containsAll(Rejeitados2));
+		assertTrue(Conferencia2.getRejectedArticles().contains(database.getArticleById(5)));
+		assertFalse(Conferencia2.getRejectedArticles().containsAll(Misto));
+		assertFalse(Conferencia2.getRejectedArticles().contains(database.getArticleById(3)));
 		
 		
 	}	

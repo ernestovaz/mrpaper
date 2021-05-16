@@ -48,10 +48,16 @@ public class ArticleTest {
 		assertEquals(article2.AverageGrade(), 2,5);
 		
 		Article article3 = database.getArticleById(3);
-		assertEquals(article3.AverageGrade(), 0);
+		assertTrue(article3.AverageGrade() == 0);
 		
 		Article article4 = database.getArticleById(4);
 		assertEquals(article4.AverageGrade(), 0,5);
+		
+		Article article5 = database.getArticleById(5);
+		assertTrue(article5.AverageGrade() == -3);
+		
+		Article article6 = database.getArticleById(6);
+		assertEquals(article6.AverageGrade(), -0,5);		
 		
 		
 	}

@@ -58,19 +58,20 @@ public class Conference{
 		int i;
 		List<Article> AcceptedArticles = new ArrayList<Article>();
 		for (i = 0; i < getArticles().size(); i++) {
-			if(getArticles().get(i).AverageGrade() >= 0);
+			if(getArticles().get(i).AverageGrade() >= 0) {
 				AcceptedArticles.add(getArticles().get(i));
-		}
+		}}
 		return AcceptedArticles;
 	}
 	
 	public List<Article> getRejectedArticles(){
 		int i;
 		List<Article> RejectedArticles = new ArrayList<Article>();
-		for (i = 0; i <getArticles().size(); i++) {
-			if(getArticles().get(i).AverageGrade() < 0);
+		
+		for (i = 0; i < getArticles().size(); i++) {
+			if(getArticles().get(i).AverageGrade() < 0) {
 				RejectedArticles.add(getArticles().get(i));
-		}	
+		}}	
 		return RejectedArticles;
 	}
 	

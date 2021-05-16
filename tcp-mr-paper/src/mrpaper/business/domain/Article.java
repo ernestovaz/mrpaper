@@ -111,9 +111,9 @@ public class Article {
 		return false;
 	}
 	
-	public long AverageGrade() {
+	public double AverageGrade() {
 		int i;
-		long AverageGrade = 0;
+		double AverageGrade = 0;
 			for(i = 0; i < getReviews().size(); i++) {
 				AverageGrade += getReviews().get(i).getRating();
 			}

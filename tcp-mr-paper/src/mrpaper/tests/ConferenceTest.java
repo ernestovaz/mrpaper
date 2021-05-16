@@ -30,11 +30,18 @@ public class ConferenceTest {
 
 	@Test
 	public void sortReviewers() {
-		
-		
-		Conference Conferencia2 = database.getConferenceById(2);
-		//Conferencia2.sortReviewers(Conferencia2.getCommitte());
-		
+		Conference c2 = database.getConferenceById(2);
+		Researcher joao =database.getResearcherById(1);
+		Researcher ana =database.getResearcherById(2);
+		Researcher manoel =database.getResearcherById(3);
+		Researcher beatriz =database.getResearcherById(6);
+		System.out.println(c2.getArticles());
+		assertTrue(c2.sortReviewers(Arrays.asList(joao,ana,manoel))
+					.containsAll(Arrays.asList(joao,ana,manoel)));
+		assertTrue(c2.sortReviewers(Arrays.asList(joao,beatriz,manoel))
+					.containsAll(Arrays.asList(joao,manoel,beatriz)));
+		assertTrue(c2.sortReviewers(Arrays.asList(manoel,ana,joao))
+					.containsAll(Arrays.asList(joao,ana,manoel)));
 	}
 	
 	@Test

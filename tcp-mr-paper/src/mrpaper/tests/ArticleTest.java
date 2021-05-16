@@ -27,15 +27,18 @@ public class ArticleTest {
 	 */
 
 	@Test
-	public void testArticle1() {
-		Researcher r1 = database.getResearcherById(1);
-		Researcher r2 = database.getResearcherById(2);
-		Researcher r3 = database.getResearcherById(3);
-		Article a1 = database.getArticleById(1);
-		Article a2 = database.getArticleById(2);
-		List<Researcher> l1 = Arrays.asList(r1,r2,r3);
-		List<Researcher> t1 = Arrays.asList(r2);
-		assertTrue(t1 == a1.validReviewers(l1));
+	public void validReviewersTest() {
+		List<Researcher> joao =Arrays.asList(database.getResearcherById(1));
+		List<Researcher> ana =Arrays.asList(database.getResearcherById(2));
+		List<Researcher> suzana =Arrays.asList(database.getResearcherById(7));
+		List<Researcher> natasha =Arrays.asList(database.getResearcherById(8));
+		Article articleA = database.getArticleById(1);
+		Article articleB = database.getArticleById(7);
+		assertTrue(articleA.validReviewers(joao).isEmpty());
+		assertTrue(articleA.validReviewers(ana).isEmpty());
+		assertTrue(articleA.validReviewers(suzana).isEmpty());
+		assertTrue(articleA.validReviewers(natasha).isEmpty());
+		assertFalse(articleB.validReviewers(joao).isEmpty());
 	}
 
 }

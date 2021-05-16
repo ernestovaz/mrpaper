@@ -60,8 +60,9 @@ public class Conference {
 		return null;
 	}
 	
-	public List<Researcher> sortReviewers(List<Researcher> reviewers){
-		return null;
+	public void sortReviewers(){
+		
+		
 	}
 	public List<Researcher> validReviewers(Article article){
 		return null;

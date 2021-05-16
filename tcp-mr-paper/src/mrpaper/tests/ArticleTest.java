@@ -34,7 +34,7 @@ public class ArticleTest {
 		List<Researcher> natasha =Arrays.asList(database.getResearcherById(8));
 		Article articleA = database.getArticleById(1);
 		Article articleB = database.getArticleById(7);
-		assertTrue(articleA.validReviewers(joao).isEmpty());  //João não pode avaliar o próprio artigo
+		assertTrue(articleA.validReviewers(joao).isEmpty());  //Joï¿½o nï¿½o pode avaliar o prï¿½prio artigo
 	  	assertFalse(articleA.validReviewers(ana).isEmpty());  
 		assertTrue(articleA.validReviewers(suzana).isEmpty());
 		assertTrue(articleA.validReviewers(natasha).isEmpty());

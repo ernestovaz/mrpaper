@@ -4,7 +4,7 @@ import mrpaper.ui.text.MrPaperTextInterface;
 
 public class AllocateArticlesCommand extends MrPaperCommand{
 
-	protected AllocateArticlesCommand(MrPaperTextInterface bankInterface) {
+	public AllocateArticlesCommand(MrPaperTextInterface bankInterface) {
 		super(bankInterface);
 		// TODO Auto-generated constructor stub
 	}

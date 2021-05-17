@@ -4,7 +4,10 @@ import mrpaper.business.ArticleService;
 import mrpaper.business.ConferenceService;
 import mrpaper.ui.MrPaperInterface;
 import mrpaper.ui.UIAction;
+import mrpaper.ui.text.command.AllocateArticlesCommand;
+import mrpaper.ui.text.command.ArticleReportCommand;
 import mrpaper.ui.text.command.MrPaperCommand;
+import mrpaper.ui.text.command.RateArticleCommand;
 
 public class MrPaperTextInterface extends MrPaperInterface {
 	
@@ -12,7 +15,9 @@ public class MrPaperTextInterface extends MrPaperInterface {
 	
 	public MrPaperTextInterface(ConferenceService conferenceService,
 			ArticleService articleService) {
-		//this.addAction("C", new TesteCommand(this));
+		this.addAction("1", new AllocateArticlesCommand(this));
+		this.addAction("2", new RateArticleCommand(this));
+		this.addAction("3", new ArticleReportCommand(this));
 	}
 
 	@Override

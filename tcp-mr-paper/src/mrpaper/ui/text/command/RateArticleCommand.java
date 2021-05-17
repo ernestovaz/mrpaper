@@ -4,7 +4,7 @@ import mrpaper.ui.text.MrPaperTextInterface;
 
 public class RateArticleCommand extends MrPaperCommand {
 
-	protected RateArticleCommand(MrPaperTextInterface bankInterface) {
+	public RateArticleCommand(MrPaperTextInterface bankInterface) {
 		super(bankInterface);
 		// TODO Auto-generated constructor stub
 	}

@@ -11,12 +11,14 @@ public class ResearcherComparator implements Comparator<Researcher>{
 	}
 	@Override 
 	public int compare(Researcher r1, Researcher r2){
+		//System.out.printf("r1id:%d r1alok:%d\n",r1.getId(),r1.getAllocation(conferenceId));
+		//System.out.printf("r2id:%d r2alok:%d\n",r2.getId(),r2.getAllocation(conferenceId));
 		if (r1.getAllocation(conferenceId) < r2.getAllocation(conferenceId))
-			return 0;
+			return -1;
 		else if(r1.getAllocation(conferenceId) > r2.getAllocation(conferenceId))
 			return 1;
 		else if (r1.getId() < r2.getId())
-			return 0;
+			return -1;
 		else return 1;
 	}
 }

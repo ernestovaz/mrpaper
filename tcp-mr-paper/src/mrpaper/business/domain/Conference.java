@@ -55,7 +55,7 @@ public class Conference{
 	public List<Review> allocateArticles(int numReviewers) {
 		List<Researcher> reviewers;
 		List<Review> reviews = new ArrayList<>();
-		Review review;
+		Review currentReview;
 
 		for(int i = 0; i < numReviewers; i++) {
 			List<Article> articleList = new ArrayList<Article>(articles);
@@ -65,8 +65,13 @@ public class Conference{
 				reviewers = article.validReviewers(committe);
 				if(!reviewers.isEmpty()) {
 					reviewers = sortReviewers(reviewers);
-					review = new Review(0,article,reviewers.get(0),null);
-					reviews.add(review);
+					currentReview = new Review(0,article,reviewers.get(0),null);
+					Researcher assignedReviewer = reviewers.get(0);
+					reviewers.get(0).addAllocation(this.id);
+					reviewers.set(0,assignedReviewer);
+					reviews.add(currentReview);
+					assignedReviewer.includeReview(currentReview);
+					article.includeReview(currentReview);
 					articleList.remove(0);
 				}
 			}while(!articleList.isEmpty() && !reviewers.isEmpty());

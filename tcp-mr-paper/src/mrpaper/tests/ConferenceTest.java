@@ -31,17 +31,23 @@ public class ConferenceTest {
 	@Test
 	public void sortReviewers() {
 		Conference c2 = database.getConferenceById(2);
+		Conference c3 = database.getConferenceById(3);
 		Researcher joao =database.getResearcherById(1);
 		Researcher ana =database.getResearcherById(2);
 		Researcher manoel =database.getResearcherById(3);
 		Researcher beatriz =database.getResearcherById(6);
-		System.out.println(c2.getArticles());
-		assertTrue(c2.sortReviewers(Arrays.asList(joao,ana,manoel))
-					.containsAll(Arrays.asList(joao,ana,manoel)));
-		assertTrue(c2.sortReviewers(Arrays.asList(joao,beatriz,manoel))
-					.containsAll(Arrays.asList(joao,manoel,beatriz)));
-		assertTrue(c2.sortReviewers(Arrays.asList(manoel,ana,joao))
-					.containsAll(Arrays.asList(joao,ana,manoel)));
+		//System.out.println(c2.getArticles());
+		assertEquals(c3.sortReviewers(Arrays.asList(joao,manoel))
+					,Arrays.asList(joao,manoel));
+		joao.addAllocation(3);
+		assertEquals(c3.sortReviewers(Arrays.asList(joao,manoel))
+					,Arrays.asList(manoel,joao));
+		assertEquals(c2.sortReviewers(Arrays.asList(joao,ana,manoel))
+					,Arrays.asList(joao,ana,manoel));
+		assertEquals(c2.sortReviewers(Arrays.asList(joao,beatriz,manoel))
+					,Arrays.asList(joao,manoel,beatriz));
+		assertEquals(c2.sortReviewers(Arrays.asList(manoel,ana,joao))
+					,Arrays.asList(joao,ana,manoel));
 	}
 	
 	@Test

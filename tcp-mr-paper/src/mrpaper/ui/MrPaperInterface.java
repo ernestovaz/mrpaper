@@ -17,7 +17,7 @@ public abstract class MrPaperInterface {
 	}
 	
 	public abstract void createAndShowUI();
-	
+
 	protected void toggleActions() {
 		for (UIAction action : actions.values()) {
 			action.setEnabled(!action.isEnabled());

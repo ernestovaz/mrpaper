@@ -19,17 +19,11 @@ public class MrPaperText extends MrPaper {
 	
 	private String getMenu() {
 		StringBuffer sb = new StringBuffer();
-		return sb.toString();
+		return sb.append("hihi").toString();
 	}
 	
 	public void showUI() {
-		UIUtils uiUtils = UIUtils.INSTANCE;
-		String option;
-		do {
-			System.out.println(getMenu());
-			option = uiUtils.readString(null);
-			this.mrPaperInterface.createAndShowUI();
-		} while(option != "0");
+		this.mrPaperInterface.createAndShowUI();
 	}
 
 	@Override

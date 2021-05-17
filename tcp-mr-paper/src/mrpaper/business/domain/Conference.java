@@ -3,6 +3,8 @@ package mrpaper.business.domain;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
+
+import mrpaper.business.ConferenceService;
 import mrpaper.business.impl.ResearcherComparator;
 
 public class Conference{
@@ -51,7 +53,23 @@ public class Conference{
 	}
 	
 	public void allocateArticles(int numReviewers) {
-		
+		List<Researcher> reviewers;
+		for(int i = 0; i < numReviewers; i++) {
+			List<Article> articleList = new ArrayList<Article>(articles);
+			do {
+				Collections.sort(articleList);
+				Article article = articleList.get(0);
+				reviewers = article.validReviewers(committe);
+				if(!reviewers.isEmpty()) {
+					reviewers = sortReviewers(reviewers);
+					Review review = new Review(article,reviewers.get(0),null);
+					article.includeReview(review);
+					reviewers.get(0).includeReview(review);
+					articleList.remove(0);
+					System.out.printf("aloquei %s para %d\n",reviewers.get(0).getName(),article.getId());
+				}
+			}while(!articleList.isEmpty() && !reviewers.isEmpty());
+		}
 	}
 	
 	public List<Article> getAcceptedArticles(){

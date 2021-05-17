@@ -12,16 +12,13 @@ public abstract class MrPaper {
 	protected final MrPaperInterface mrPaperInterface;
 	
 	public static void main(String[] args) throws Exception {
-		MrPaper mrpaper = null;
-		mrpaper = new MrPaperText();
-		
+		MrPaperText mrpaper  = new MrPaperText();
 		mrpaper.showUI();
 	}
 	
 	
 	public MrPaper() {
 		Database database = new Database(true);
-		
 		ConferenceService conferenceService = new ConferenceServiceImpl(database);
 		ArticleService articleService = new ArticleServiceImpl(database);
 		
@@ -35,6 +32,5 @@ public abstract class MrPaper {
 			);
 	
 	
-	public abstract void showUI();
 
 }

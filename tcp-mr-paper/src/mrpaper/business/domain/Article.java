@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Article {
+public class Article implements Comparable<Article>{
 	
 	private int id;
 	private String name;
@@ -83,9 +83,8 @@ public class Article {
 	}
 	
 	public List<Researcher> validReviewers(List<Researcher> reviewers){
-		int i;
 		List<Researcher> validReaserchers = new ArrayList<Researcher>();
-		for(i = 0;i < reviewers.size(); i ++) {
+		for(int i = 0;i < reviewers.size(); i ++) {
 			if (reviewerIsValid(reviewers.get(i)) && !reviewerIsEvaluating(reviewers.get(i)))
 					validReaserchers.add(reviewers.get(i));
 		}
@@ -121,6 +120,11 @@ public class Article {
 		return AverageGrade;
 	}
 	
+	public int compareTo(Article other) {
+		if(id > other.getId())
+			return 0;
+		else return 1;
+	}
 	
 
 	@Override

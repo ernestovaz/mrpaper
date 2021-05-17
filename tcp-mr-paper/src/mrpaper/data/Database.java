@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import mrpaper.business.domain.Article;
@@ -18,7 +19,7 @@ public class Database {
 	private final Map<Integer, Researcher> researchers;
 	private final Map<Integer, Conference> conferences;
 	private final Map<Integer, Article> articles;
-	private final Map<Integer, Review> reviews;
+	private final List<Review> reviews;
 	private final Map<Integer, University> universities;
 	private final Map<Integer, Topic> topics;
 	
@@ -30,7 +31,7 @@ public class Database {
 		this.researchers = new HashMap<>();
 		this.conferences = new HashMap<>();
 		this.articles = new HashMap<>();
-		this.reviews = new HashMap<>();
+		this.reviews = new ArrayList<>();
 		this.universities = new HashMap<>();
 		this.topics = new HashMap<>();
 		
@@ -84,51 +85,51 @@ public class Database {
 			c2.setArticles(Arrays.asList(a2,a3,a4,a5,a6));
 			c1.setArticles(Arrays.asList(a7,a8,a9,a10,a11));
 			
-			Review review1 = new Review(1, a1, r8, 2);
+			Review review1 = new Review(a1, r8, 2);
 			r8.getReviews().add(review1);
 			a1.getReviews().add(review1);
 	
-			Review review2 = new Review(2, a1, r10, null);
+			Review review2 = new Review(a1, r10, null);
 			a1.getReviews().add(review2);
 			r10.getReviews().add(review2);
 			
-			Review review3 = new Review(3, a2, r7, 2);
+			Review review3 = new Review(a2, r7, 2);
 			a2.getReviews().add(review3);
 			r7.getReviews().add(review3);
 			
-			Review review4 = new Review(4, a2, r2, 3);
+			Review review4 = new Review(a2, r2, 3);
 			a2.getReviews().add(review4);
 			r2.getReviews().add(review4);
 			
-			Review review5 = new Review(5, a3, r4, -1);
+			Review review5 = new Review(a3, r4, -1);
 			a3.getReviews().add(review5);
 			r4.getReviews().add(review5);
 
-			Review review6 = new Review(6, a3, r6, 1);
+			Review review6 = new Review(a3, r6, 1);
 			a3.getReviews().add(review6);
 			r6.getReviews().add(review6);
 			
-			Review review7 = new Review(7, a4, r1, 1);
+			Review review7 = new Review(a4, r1, 1);
 			a4.getReviews().add(review7);
 			r1.getReviews().add(review7);
 
-			Review review8 = new Review(8, a4, r3, 0);
+			Review review8 = new Review(a4, r3, 0);
 			a4.getReviews().add(review8);
 			r3.getReviews().add(review8);
 			
-			Review review9 = new Review(9, a5, r4, -3);
+			Review review9 = new Review(a5, r4, -3);
 			a5.getReviews().add(review9);
 			r4.getReviews().add(review9);
 			
-			Review review10 = new Review(10, a5, r5, -3);
+			Review review10 = new Review(a5, r5, -3);
 			a5.getReviews().add(review10);
 			r5.getReviews().add(review10);
 			
-			Review review11 = new Review(11, a6, r3, -1);
+			Review review11 = new Review(a6, r3, -1);
 			a6.getReviews().add(review11);
 			r3.getReviews().add(review11);
 			
-			Review review12 = new Review(12, a6, r6, 0);
+			Review review12 = new Review(a6, r6, 0);
 			a6.getReviews().add(review12);
 			r6.getReviews().add(review12);
 			
@@ -205,6 +206,15 @@ public class Database {
 		return this.conferences.get(id);
 	}
 	
+	public Conference getConferenceByInitials(String initials) {
+		for (int id : conferences.keySet()) {
+			if(conferences.get(id).getInitials() == initials)
+				System.out.println(conferences.get(id).getInitials());
+				return conferences.get(id);
+		}
+		return null;
+	}
+	
 	public Collection<Article> getAllArticles() {
 		return this.articles.values();
 	}
@@ -214,7 +224,7 @@ public class Database {
 	}
 	
 	public Collection<Review> getAllReviews() {
-		return this.reviews.values();
+		return this.reviews;
 	}
 	
 	public Review getReviewById(int id) {
@@ -254,7 +264,7 @@ public class Database {
 	}
 	
 	public void save(Review reviews) {
-		this.reviews.put(reviews.getId(), reviews);
+		this.reviews.add(reviews);
 		reviews.getReviewer().addAllocation(reviews.getArticle().getConference().getId());
 	}
 	

@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import mrpaper.business.domain.Article;
+import mrpaper.business.domain.Conference;
 import mrpaper.data.Database;
 
 public class DatabaseTest {
@@ -27,6 +28,18 @@ public class DatabaseTest {
 		Article a1 = database.getArticleById(1);
 		assertTrue(a1.getReviews().size() == 2);
 		assertNull(a1.getReviews().get(1).getRating());
+	}
+	
+	@Test
+	public void testConference() {
+		
+		Conference cini = database.getConferenceByInitials("FSE");
+		Conference cid = database.getConferenceById(2);
+		
+		assertTrue(cid.getId() == 2);
+		assertTrue(cid.getId() == cini.getId());
+		
+		
 	}
 
 }

@@ -14,7 +14,7 @@ public class MrPaperTextInterface extends MrPaperInterface {
 			ArticleService articleService) {
 		this.addAction("1", new AllocateArticlesCommand(this, conferenceService));
 		this.addAction("2", new RateArticleCommand(this));
-		this.addAction("3", new ArticleReportCommand(this));
+		this.addAction("3", new ArticleReportCommand(this, conferenceService));
 	}
 
 	@Override

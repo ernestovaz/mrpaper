@@ -6,7 +6,6 @@ import java.util.List;
 import mrpaper.business.ConferenceService;
 import mrpaper.business.domain.Article;
 import mrpaper.business.domain.Conference;
-import mrpaper.business.domain.Researcher;
 import mrpaper.business.domain.Review;
 import mrpaper.data.Database;
 
@@ -34,5 +33,19 @@ public class ConferenceServiceImpl implements ConferenceService {
 		}
 		return newReviews;
 	}
+
+	public List<Article> articleAcceptedReport(String initials) {
+		Conference conference = database.getConferenceByInitials(initials);
+		System.out.println(conference.getId());
+		return conference.getAcceptedArticles();
+	}
+
+	
+	public List<Article> articleRejectedReport(String initials) {
+		Conference conference = database.getConferenceByInitials(initials);
+		return conference.getRejectedArticles();
+	}
+	
+	
 	
 }

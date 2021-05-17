@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import mrpaper.business.ConferenceService;
 import mrpaper.business.impl.ResearcherComparator;
 
 public class Conference{

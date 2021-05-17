@@ -13,7 +13,7 @@ public class MrPaperTextInterface extends MrPaperInterface {
 	public MrPaperTextInterface(ConferenceService conferenceService,
 			ArticleService articleService) {
 		this.addAction("1", new AllocateArticlesCommand(this, conferenceService));
-		this.addAction("2", new RateArticleCommand(this));
+		this.addAction("2", new RateArticleCommand(this, articleService));
 		this.addAction("3", new ArticleReportCommand(this, conferenceService));
 	}
 

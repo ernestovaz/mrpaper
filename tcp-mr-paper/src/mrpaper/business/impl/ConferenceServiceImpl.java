@@ -29,7 +29,7 @@ public class ConferenceServiceImpl implements ConferenceService {
 		int count = 1;
 		for (Review review : newReviews) {
 			review.setId(numReviews+count);
-			database.save(review);
+			database.includeReview(review);
 			count += 1;
 		}
 		return newReviews;

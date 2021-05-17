@@ -270,6 +270,10 @@ public class Database {
 		reviews.getArticle().includeReview(reviews);
 	}
 	
+	public void includeReview(Review reviews) {
+		this.reviews.put(reviews.getId(),reviews);
+	}
+	
 	public void save(Researcher researcher) {
 		this.researchers.put(researcher.getId(), researcher);
 	}

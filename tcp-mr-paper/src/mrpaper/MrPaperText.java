@@ -36,6 +36,4 @@ public class MrPaperText extends MrPaper {
 	public MrPaperInterface createMrPaperInterface(ConferenceService conferenceService, ArticleService articleService) {
 		return new MrPaperTextInterface(conferenceService, articleService);
 	}
-
-	
 }

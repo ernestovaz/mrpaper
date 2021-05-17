@@ -23,7 +23,7 @@ public class DatabaseTest {
 	 * inicias descritos na especifica��o do trabalho pr�tico
 	 */
 
-	@Test
+
 	public void testArticle1() {
 		Article a1 = database.getArticleById(1);
 		assertTrue(a1.getReviews().size() == 2);
@@ -33,11 +33,22 @@ public class DatabaseTest {
 	@Test
 	public void testConference() {
 		
-		Conference cini = database.getConferenceByInitials("FSE");
-		Conference cid = database.getConferenceById(2);
+		Conference cini1 = database.getConferenceByInitials("ICSE");
+		Conference cid1 = database.getConferenceById(1);
 		
-		assertTrue(cid.getId() == 2);
-		assertTrue(cid.getId() == cini.getId());
+		assertTrue(cini1 == cid1);
+		assertTrue(cini1.getInitials() == "ICSE");
+		
+		Conference ci = database.getConferenceByInitials("aasdasdasdasdsdas")
+		assertFalse(ci.getInitials() == "ICSE");
+		
+		Conference cini2 = database.getConferenceByInitials("FSE");
+		Conference cid2 = database.getConferenceById(2);
+		
+		assertTrue(cid2.getId() == 2);
+		assertTrue(cid2.getId() == cini2.getId());
+		
+		
 		
 		
 	}

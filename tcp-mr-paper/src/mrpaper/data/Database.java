@@ -80,7 +80,7 @@ public class Database {
 			Article a10 = new Article(10, "Architecture Comformance", r9, c1, t4);
 			Article a11 = new Article(11, "Structural Testing", r10, c1, t5);
 			
-			c1.setArticles(Arrays.asList(a1));
+			c3.setArticles(Arrays.asList(a1));
 			c2.setArticles(Arrays.asList(a2,a3,a4,a5,a6));
 			c1.setArticles(Arrays.asList(a7,a8,a9,a10,a11));
 			

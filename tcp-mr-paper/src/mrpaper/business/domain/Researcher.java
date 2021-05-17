@@ -84,13 +84,6 @@ public class Researcher{
 		return allocations;
 	}
 
-	public boolean isAllocatedFirst(Researcher other, int conferenceId) {
-		if (getAllocation(conferenceId) < other.getAllocation(conferenceId))
-			return true;
-		else if (getId() < other.getId())
-			return true;
-		else return false;
-	}
 	@Override 
 	public String toString() {
 		return String.format("[ID: %s, NAME: %s, AFFILIATION: %s]",

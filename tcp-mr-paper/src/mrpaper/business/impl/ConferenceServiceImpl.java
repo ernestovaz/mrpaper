@@ -36,13 +36,17 @@ public class ConferenceServiceImpl implements ConferenceService {
 
 	public List<Article> articleAcceptedReport(String initials) {
 		Conference conference = database.getConferenceByInitials(initials);
-		return conference.getAcceptedArticles();
+		if(conference.isFullyAllocated())
+			return conference.getAcceptedArticles();
+		else return null;
 	}
 
 	
 	public List<Article> articleRejectedReport(String initials) {
 		Conference conference = database.getConferenceByInitials(initials);
-		return conference.getRejectedArticles();
+		if(conference.isFullyAllocated())
+			return conference.getRejectedArticles();
+		else return null;
 	}
 	
 	

@@ -124,7 +124,20 @@ public class Conference{
     return articles;
 }
 	
-	
+	public boolean isFullyAllocated() {
+		List<Review> articleReviews;
+		if(articles.isEmpty())
+			return false;
+		for(Article article : articles) {		
+			articleReviews = article.getReviews();
+			if(articleReviews.isEmpty()) 
+				return false;
+			for(Review review : articleReviews) 
+				if(review.getRating()==null)
+					return false;
+		}
+		return true;
+	}
 	
 		
 	public List<Researcher> sortReviewers(List<Researcher> reviewers){

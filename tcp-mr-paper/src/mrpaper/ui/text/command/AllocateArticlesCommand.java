@@ -20,7 +20,7 @@ public class AllocateArticlesCommand extends MrPaperCommand{
 	@Override
 	public void execute() throws Exception {
 		String conference = UIUtils.INSTANCE.readString("Conferência(sigla)");
-		int quantity = UIUtils.INSTANCE.readInteger("Revisors por artigo");
+		int quantity = UIUtils.INSTANCE.readInteger("Revisores por artigo");
 		System.out.println("\nIniciando alocação.\n");
 		List<Review> newReviews = conferenceService.allocateConference(conference, quantity);
 		for (Review review : newReviews) {

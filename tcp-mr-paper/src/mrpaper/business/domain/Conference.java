@@ -3,6 +3,7 @@ package mrpaper.business.domain;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 import mrpaper.business.impl.ResearcherComparator;
 
@@ -86,7 +87,7 @@ public class Conference{
 			if(getArticles().get(i).AverageGrade() >= 0) {
 				AcceptedArticles.add(getArticles().get(i));
 		}}
-		return AcceptedArticles;
+		return descSortArticle(AcceptedArticles);
 	}
 	
 	public List<Article> getRejectedArticles(){
@@ -97,8 +98,33 @@ public class Conference{
 			if(getArticles().get(i).AverageGrade() < 0) {
 				RejectedArticles.add(getArticles().get(i));
 		}}	
-		return RejectedArticles;
+		return ascSortArticle(RejectedArticles);
 	}
+	
+	
+    public List<Article> descSortArticle(List<Article> articles){
+    	Collections.sort(articles, new Comparator<Article>(){
+        public int compare(Article a1, Article a2) {
+            if (a1.AverageGrade() > a2.AverageGrade())
+                return -1;
+            else return 1;
+        }
+    });
+    return articles;
+}
+
+    public List<Article> ascSortArticle(List<Article> articles){
+    	Collections.sort(articles, new Comparator<Article>(){
+        public int compare(Article a1, Article a2) {
+            if (a1.AverageGrade() < a2.AverageGrade())
+                return -1;
+            else return 1;
+        }
+    });
+    return articles;
+}
+	
+	
 	
 		
 	public List<Researcher> sortReviewers(List<Researcher> reviewers){

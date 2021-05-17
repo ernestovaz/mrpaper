@@ -207,8 +207,7 @@ public class Database {
 	
 	public Conference getConferenceByInitials(String initials) {
 		for (int id : conferences.keySet()) {
-			if(conferences.get(id).getInitials() == initials)
-				System.out.println(conferences.get(id).getInitials());
+			if(conferences.get(id).getInitials().equals(initials))
 				return conferences.get(id);
 		}
 		return null;

@@ -36,20 +36,20 @@ public class DatabaseTest {
 		Conference cini1 = database.getConferenceByInitials("ICSE");
 		Conference cid1 = database.getConferenceById(1);
 		
+		Conference fse = database.getConferenceByInitials("FSE");
+		//assertTrue(fse.)
+		
 		assertTrue(cini1 == cid1);
 		assertTrue(cini1.getInitials() == "ICSE");
 		
-		Conference ci = database.getConferenceByInitials("aasdasdasdasdsdas")
-		assertFalse(ci.getInitials() == "ICSE");
+		Conference ci = database.getConferenceByInitials("aasdasdasdasdsdas");
+		assertTrue(ci == null);
 		
 		Conference cini2 = database.getConferenceByInitials("FSE");
 		Conference cid2 = database.getConferenceById(2);
 		
 		assertTrue(cid2.getId() == 2);
-		assertTrue(cid2.getId() == cini2.getId());
-		
-		
-		
+		assertTrue(cid2.getId() == cini2.getId());		
 		
 	}
 

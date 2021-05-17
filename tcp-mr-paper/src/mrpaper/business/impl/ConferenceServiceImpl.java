@@ -36,7 +36,6 @@ public class ConferenceServiceImpl implements ConferenceService {
 
 	public List<Article> articleAcceptedReport(String initials) {
 		Conference conference = database.getConferenceByInitials(initials);
-		System.out.println(conference.getId());
 		return conference.getAcceptedArticles();
 	}
 

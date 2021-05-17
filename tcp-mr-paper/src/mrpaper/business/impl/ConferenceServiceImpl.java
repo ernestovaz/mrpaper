@@ -22,16 +22,17 @@ public class ConferenceServiceImpl implements ConferenceService {
 		conferences.addAll(database.getAllConferences());
 		return conferences;
 	}
-	public void allocateConference(String initials, int numReviewers) {
+	public List<Review> allocateConference(String initials, int numReviewers) {
 		Conference conference = database.getConferenceByInitials(initials);
-		conference.allocateArticles(numReviewers);
-	}
-
-	public void createReview(Article article, Researcher reviewer) {
-		int reviewQt = database.getAllReviews().size();
-		Review review = new Review(article,reviewer,null);
-		article.includeReview(review);
-		reviewer.includeReview(review);
+		List<Review> newReviews = conference.allocateArticles(numReviewers);
+		int numReviews = database.getAllReviews().size();
+		int count = 1;
+		for (Review review : newReviews) {
+			review.setId(numReviews+count);
+			database.save(review);
+			count += 1;
+		}
+		return newReviews;
 	}
 	
 }

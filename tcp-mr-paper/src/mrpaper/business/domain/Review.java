@@ -2,16 +2,25 @@ package mrpaper.business.domain;
 
 public class Review {
 	
+	private int id;
 	private Researcher reviewer;
 	private Article article;
 	private Integer rating;
 	
-	public Review(Article article, Researcher reviewer, Integer rating) {
+	public Review(int id, Article article, Researcher reviewer, Integer rating) {
+		this.id = id;
 		this.reviewer = reviewer;
 		this.article = article;
 		this.rating = rating;
 	}
 
+	public int getId() {
+		return id;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public Researcher getReviewer() {
 		return reviewer;

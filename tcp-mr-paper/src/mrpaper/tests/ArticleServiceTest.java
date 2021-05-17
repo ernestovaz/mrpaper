@@ -31,7 +31,7 @@ public class ArticleServiceTest {
 		int originalSize = a1.getReviews().size();
 		int reviewedbyr1 = r1.getReviews().size();
 		
-		Review re1 = new Review(a1,r1,null);
+		Review re1 = new Review(0,a1,r1,null);
 		r1.includeReview(re1);
 		a1.includeReview(re1);
 		aaa.setRating(re1, 0);	

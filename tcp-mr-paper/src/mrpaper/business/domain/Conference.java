@@ -52,8 +52,11 @@ public class Conference{
 		this.committe = committe;
 	}
 	
-	public void allocateArticles(int numReviewers) {
+	public List<Review> allocateArticles(int numReviewers) {
 		List<Researcher> reviewers;
+		List<Review> reviews = new ArrayList<>();
+		Review review;
+
 		for(int i = 0; i < numReviewers; i++) {
 			List<Article> articleList = new ArrayList<Article>(articles);
 			do {
@@ -62,14 +65,14 @@ public class Conference{
 				reviewers = article.validReviewers(committe);
 				if(!reviewers.isEmpty()) {
 					reviewers = sortReviewers(reviewers);
-					Review review = new Review(article,reviewers.get(0),null);
-					article.includeReview(review);
-					reviewers.get(0).includeReview(review);
+					review = new Review(0,article,reviewers.get(0),null);
+					reviews.add(review);
 					articleList.remove(0);
-					System.out.printf("aloquei %s para %d\n",reviewers.get(0).getName(),article.getId());
 				}
 			}while(!articleList.isEmpty() && !reviewers.isEmpty());
 		}
+		
+		return reviews;
 	}
 	
 	public List<Article> getAcceptedArticles(){

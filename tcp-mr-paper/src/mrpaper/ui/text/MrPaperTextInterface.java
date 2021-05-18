@@ -23,23 +23,23 @@ public class MrPaperTextInterface extends MrPaperInterface {
 		String commandKey = null;
 		do {
 			System.out.println();
-			System.out.print(getMenu(uiUtils.getTextManager()));
+			System.out.print(getMenu());
 			commandKey = uiUtils.readString(null);
 			MrPaperCommand command = (MrPaperCommand) actions.get(commandKey);
 			if (command != null) {
 				try {
 					command.execute();
 				} catch (Exception e) {
-					uiUtils.handleUnexceptedError(e);
+					System.out.println(e.getMessage());
 				}
 			}
 		} while (!EXIT_CODE.equals(commandKey));
 	}
 	
 	
-	protected String getMenu(TextManager textManager) {
+	protected String getMenu() {
 		StringBuffer sb = new StringBuffer();
-		sb.append("Escolha operação:"
+		sb.append("Escolha operacao:"
 				+ "\n[1]Alocar Artigos"
 				+ "\n[2]Avaliar Artigos"
 				+ "\n[3]Exibir Artigos"

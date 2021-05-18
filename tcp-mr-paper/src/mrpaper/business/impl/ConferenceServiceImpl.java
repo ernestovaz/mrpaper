@@ -8,8 +8,8 @@ import mrpaper.business.domain.Article;
 import mrpaper.business.domain.Conference;
 import mrpaper.business.domain.Review;
 import mrpaper.data.Database;
-import mrpaper.exceptions.NotAConvention;
 import mrpaper.exceptions.NotAConventionException;
+
 
 public class ConferenceServiceImpl implements ConferenceService {
 	

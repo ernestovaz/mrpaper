@@ -53,7 +53,7 @@ public class Database {
 			University u2 = new University(2, "USP");
 			University u3 = new University(3, "UFRJ");
 		
-			Researcher r1 = new Researcher(1, "Jo�o", u1,new Topic[]{t1,t2,t3});
+			Researcher r1 = new Researcher(1, "Joao", u1,new Topic[]{t1,t2,t3});
 			Researcher r2 = new Researcher(2, "Ana", u2,new Topic[]{t4,t3,t2});
 			Researcher r3 = new Researcher(3, "Manoel", u1,new Topic[]{t1,t5});
 			Researcher r4 = new Researcher(4, "Joana", u3,new Topic[]{t1,t2,t4,t6});

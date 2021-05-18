@@ -19,15 +19,15 @@ public class AllocateArticlesCommand extends MrPaperCommand{
 
 	@Override
 	public void execute() throws Exception {
-		String conference = UIUtils.INSTANCE.readString("Conferência(sigla)");
+		String conference = UIUtils.INSTANCE.readString("Conferencia(sigla)");
 		int quantity = UIUtils.INSTANCE.readInteger("Revisores por artigo");
-		System.out.println("\nIniciando alocação.\n");
 		List<Review> newReviews = conferenceService.allocateConference(conference, quantity);
+		System.out.println("\nIniciando alocacao...\n");
 		for (Review review : newReviews) {
 			System.out.printf("Artigo id %d alocado ao revisor id %d.\n",
 					review.getArticle().getId(),review.getReviewer().getId());
 		}
-		System.out.println("Fim da alocação.");
+		System.out.println("Fim da alocacao.");
 	}
 
 }

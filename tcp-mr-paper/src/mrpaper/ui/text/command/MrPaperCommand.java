@@ -10,8 +10,8 @@ public abstract class MrPaperCommand implements UIAction {
 	protected final MrPaperTextInterface mrPaperInterface;
 	private boolean isEnabled;
 
-	protected MrPaperCommand(MrPaperTextInterface bankInterface) {
-		this(bankInterface, false);
+	protected MrPaperCommand(MrPaperTextInterface mrPaperInterface) {
+		this(mrPaperInterface, false);
 	}
 
 	protected MrPaperCommand(MrPaperTextInterface mrPaperInterface, boolean isEnabled) {
@@ -19,9 +19,6 @@ public abstract class MrPaperCommand implements UIAction {
 		this.isEnabled = isEnabled;
 	}
 
-	protected TextManager getTextManager() {
-		return UIUtils.INSTANCE.getTextManager();
-	}
 
 	public boolean isEnabled() {
 		return isEnabled;

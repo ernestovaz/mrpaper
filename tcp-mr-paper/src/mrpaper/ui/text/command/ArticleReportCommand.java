@@ -12,8 +12,8 @@ public class ArticleReportCommand extends MrPaperCommand{
 
 	private final ConferenceService conferenceService;
 	
-	public ArticleReportCommand(MrPaperTextInterface bankInterface, ConferenceService conferenceService) {
-		super(bankInterface);
+	public ArticleReportCommand(MrPaperTextInterface mrPaperInterface, ConferenceService conferenceService) {
+		super(mrPaperInterface);
 		this.conferenceService = conferenceService;
 	}
 

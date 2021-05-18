@@ -5,6 +5,8 @@ import java.util.List;
 import mrpaper.business.ArticleService;
 import mrpaper.business.domain.Article;
 import mrpaper.business.domain.Review;
+import mrpaper.exceptions.IllegalNumberException;
+import mrpaper.exceptions.NoReviewerException;
 import mrpaper.business.domain.Researcher;
 import mrpaper.ui.text.MrPaperTextInterface;
 import mrpaper.ui.text.UIUtils;
@@ -31,6 +33,12 @@ public class RateArticleCommand extends MrPaperCommand {
         Article article = articles.get(articleId);
         List<Review> reviews = article.getReviews();
         
+        if(reviews.isEmpty()) 
+        {
+        	throw new NoReviewerException("Nao ha revisores para este artigo");
+        }
+        
+        
         System.out.println("\nLista de Revisores\n");
 		for (Review review : reviews) {
 			System.out.printf("%d:Nome Revisor: %s\n",
@@ -45,6 +53,12 @@ public class RateArticleCommand extends MrPaperCommand {
 		}
 		
 		int rating =  UIUtils.INSTANCE.readInteger("Escolha uma nota entre -3 e 3:");
+		
+			if (rating > 3 || rating < -3)
+			{
+				throw new IllegalNumberException("Deve ser um número entre -3 e 3"); 
+			}
+		
 		articleService.setRating(chosenReview, rating);
     }
 

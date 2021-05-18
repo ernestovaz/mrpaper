@@ -8,6 +8,8 @@ import mrpaper.business.domain.Article;
 import mrpaper.business.domain.Conference;
 import mrpaper.business.domain.Review;
 import mrpaper.data.Database;
+import mrpaper.exceptions.NotAConvention;
+import mrpaper.exceptions.NotAConventionException;
 
 public class ConferenceServiceImpl implements ConferenceService {
 	
@@ -23,6 +25,10 @@ public class ConferenceServiceImpl implements ConferenceService {
 	}
 	public List<Review> allocateConference(String initials, int numReviewers) {
 		Conference conference = database.getConferenceByInitials(initials);
+		if (conference == null) 
+		{
+			throw new NotAConventionException("Informe uma convencao valida");	
+		}
 		List<Review> newReviews = conference.allocateArticles(numReviewers);
 		int numReviews = database.getAllReviews().size();
 		int count = 1;
@@ -36,6 +42,10 @@ public class ConferenceServiceImpl implements ConferenceService {
 
 	public List<Article> articleAcceptedReport(String initials) {
 		Conference conference = database.getConferenceByInitials(initials);
+		if (conference == null) 
+		{
+			throw new NotAConventionException("Informe uma convencao valida");	
+		}
 		if(conference.isFullyAllocated())
 			return conference.getAcceptedArticles();
 		else return null;

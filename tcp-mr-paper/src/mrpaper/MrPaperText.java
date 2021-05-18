@@ -17,11 +17,6 @@ public class MrPaperText extends MrPaper {
 
 	}
 	
-	private String getMenu() {
-		StringBuffer sb = new StringBuffer();
-		return sb.append("hihi").toString();
-	}
-	
 	public void showUI() {
 		this.mrPaperInterface.createAndShowUI();
 	}
